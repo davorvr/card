@@ -201,7 +201,7 @@ cosinor_pop_impl <- function(predictors, outcomes, tau, population) {
   ### Coefficients
 
   # Fits of individual cosinors
-  kfits <- sapply(kCosinors, stats::fitted)
+  kfits <- as.data.frame(sapply(kCosinors, stats::fitted))
   fits <- data.frame(
     population = rep(names(kfits), sapply(kfits, length)),
     yhat = unlist(kfits)
